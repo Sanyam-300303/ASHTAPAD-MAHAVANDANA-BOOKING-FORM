@@ -32,22 +32,21 @@
       width: 100%;
       font-size: 38px;
       font-weight: 600;
-      color: #ad1457; /* darker pink shade */
+      color: #ad1457;
       text-shadow: 0 0 2px rgba(0,0,0,0.1);
       animation: fadeInTop 4s ease-out forwards;
       letter-spacing: 0.08em;
       user-select: none;
       padding: 10px 0;
-      user-select: none;
     }
 
     .greeting {
       position: absolute;
-      top: 110px; /* double gap from header */
+      top: 170px; /* Increased from 110px to 170px */
       width: 100%;
       font-size: 42px;
-      font-weight: 700; /* bold */
-      color: #880e4f; /* darker pink shade */
+      font-weight: 700;
+      color: #880e4f;
       text-shadow: 0 0 1px rgba(0,0,0,0.05);
       animation: fadeInTop 4s ease-out forwards;
       line-height: 1.2;
@@ -62,19 +61,19 @@
     }
 
     .container {
-      background-color: rgba(255, 240, 245, 0.9); /* very light pink */
+      background-color: rgba(255, 240, 245, 0.9);
       padding: 20px 30px;
       border-radius: 12px;
       width: 85%;
       max-width: 600px;
       text-align: center;
-      box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3); /* subtle pink shadow */
-      margin-top: 230px; /* increased margin to separate from greeting */
+      box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
+      margin-top: 300px; /* Adjusted to maintain gap */
       z-index: 2;
     }
 
     h2 {
-      color: #ad1457; /* darker pink */
+      color: #ad1457;
       font-weight: 700;
       margin-bottom: 15px;
     }
@@ -85,7 +84,7 @@
       width: 80%;
       margin: 12px 0;
       border-radius: 6px;
-      border: 1px solid #f48fb1; /* light pink border */
+      border: 1px solid #f48fb1;
       outline-color: #f06292;
     }
 
@@ -105,7 +104,7 @@
     }
 
     #errorMsg {
-      color: #d81b60; /* pinkish red */
+      color: #d81b60;
       margin-top: 10px;
       font-weight: 600;
       min-height: 24px;
@@ -133,7 +132,7 @@
       box-shadow: 0 4px 10px rgba(240, 128, 152, 0.25);
     }
 
-    /* Animations */
+    /* Animation */
     @keyframes fadeInTop {
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -162,8 +161,7 @@
       <h3>Booking Form</h3>
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfa4JVsl8UrsiXwkDofkSUMUAy5JCLhde6m3tioh0_hxrh-PA/viewform?embedded=true"
-        loading="lazy"
-      >
+        loading="lazy">
         Loading…
       </iframe>
 
@@ -177,19 +175,15 @@
   </div>
 
   <script>
-    // Define all valid booking IDs based on your ranges
     const validBookingIds = [];
 
-    // Helper to add a range of booking IDs (case insensitive)
     function addBookingRange(prefix, start, end) {
-      for(let i = start; i <= end; i++) {
-        // Format number with no leading zeros except as needed
+      for (let i = start; i <= end; i++) {
         validBookingIds.push(prefix.toLowerCase() + i);
       }
     }
 
-    // Adding ranges (all lowercased for case-insensitive check)
-    addBookingRange('spc', 101, 153); // Spc101 - Spc153 (you wrote Spc101-SPC53 which seems typo, assuming 153)
+    addBookingRange('spc', 101, 153);
     addBookingRange('ind', 154, 188);
     addBookingRange('shwh', 189, 274);
     addBookingRange('nhwh', 275, 295);
@@ -201,8 +195,7 @@
     addBookingRange('shy', 390, 409);
 
     function checkBookingId() {
-      const enteredIdRaw = document.getElementById("bookingId").value.trim();
-      const enteredId = enteredIdRaw.toLowerCase();
+      const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const formContainer = document.getElementById("formContainer");
 
