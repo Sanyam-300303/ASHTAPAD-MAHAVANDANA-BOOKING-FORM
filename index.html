@@ -132,7 +132,6 @@
       box-shadow: 0 4px 10px rgba(240, 128, 152, 0.25);
     }
 
-    /* Animation */
     @keyframes fadeInTop {
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -202,21 +201,10 @@
       if (!validBookingIds.includes(enteredId)) {
         errorMsg.innerText = "❌ Invalid Booking ID. Please try again.";
         formContainer.style.display = "none";
-        return;
+      } else {
+        errorMsg.innerText = "";
+        formContainer.style.display = "block";
       }
-
-      const key = "usedBooking_" + enteredId;
-
-      if (localStorage.getItem(key)) {
-        errorMsg.innerText = "⚠️ This Booking ID has already been used.";
-        formContainer.style.display = "none";
-        return;
-      }
-
-      // Mark as used and show form
-      localStorage.setItem(key, "true");
-      errorMsg.innerText = "";
-      formContainer.style.display = "block";
     }
   </script>
 </body>
