@@ -30,7 +30,7 @@
       position: absolute;
       top: 20px;
       width: 100%;
-      font-size: 76px;  /* doubled font size */
+      font-size: 76px; /* doubled font size */
       font-weight: 600;
       color: #ad1457;
       text-shadow: 0 0 2px rgba(0,0,0,0.1);
@@ -194,25 +194,8 @@
     addBookingRange('chow', 372, 389);
     addBookingRange('shy', 390, 409);
 
-    // Check if bookingId already submitted (localStorage)
-    function hasSubmitted(bookingId) {
-      const submitted = localStorage.getItem('submittedBookingIds');
-      if (!submitted) return false;
-      const submittedArray = JSON.parse(submitted);
-      return submittedArray.includes(bookingId);
-    }
-
-    // Mark bookingId as submitted in localStorage
-    function markSubmitted(bookingId) {
-      let submitted = localStorage.getItem('submittedBookingIds');
-      let submittedArray = submitted ? JSON.parse(submitted) : [];
-      submittedArray.push(bookingId);
-      localStorage.setItem('submittedBookingIds', JSON.stringify(submittedArray));
-    }
-
     function checkBookingId() {
-      const inputEl = document.getElementById("bookingId");
-      const enteredId = inputEl.value.trim().toLowerCase();
+      const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const formContainer = document.getElementById("formContainer");
 
@@ -222,30 +205,17 @@
         return;
       }
 
-      if (hasSubmitted(enteredId)) {
+      // Check if this bookingId was already used (in localStorage)
+      if (localStorage.getItem("usedBooking_" + enteredId)) {
         formContainer.style.display = "none";
-        errorMsg.innerText = "⚠️ This Booking ID has already submitted the form.";
+        errorMsg.innerText = "⚠️ This Booking ID has already been used to fill the form.";
         return;
       }
 
-      // Show form and clear error
+      // If valid and not used, show form and save booking id as used
       formContainer.style.display = "block";
       errorMsg.innerText = "";
-
-      // When user agrees to terms and submits the form (simulate submit)
-      const termsCheckbox = document.getElementById("termsCheckbox");
-
-      // Reset checkbox on every new booking ID entry
-      termsCheckbox.checked = false;
-
-      // Add event listener to checkbox to mark submission once checked
-      termsCheckbox.onchange = function () {
-        if (this.checked) {
-          // Save submission locally to block further form display for this ID
-          markSubmitted(enteredId);
-          alert("Your form access is now recorded. Please fill the form and submit.");
-        }
-      };
+      localStorage.setItem("usedBooking_" + enteredId, "true");
     }
   </script>
 </body>
