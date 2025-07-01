@@ -26,41 +26,34 @@
       color: #333;
     }
 
-    .header {
+    header {
       position: absolute;
       top: 20px;
       width: 100%;
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 600;
-      color: #ad1457;  /* darker pink */
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+      color: #ad1457; /* darker pink shade */
+      text-shadow: 0 0 2px rgba(0,0,0,0.1);
+      animation: fadeInTop 4s ease-out forwards;
+      letter-spacing: 0.08em;
       user-select: none;
       padding: 10px 0;
-      letter-spacing: 0.07em;
+      user-select: none;
     }
 
     .greeting {
       position: absolute;
-      top: 100px; /* increased gap from header */
+      top: 110px; /* double gap from header */
       width: 100%;
-      font-size: 40px;
-      font-weight: 700;
-      color: #880e4f; /* darker pink */
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.12);
+      font-size: 42px;
+      font-weight: 700; /* bold */
+      color: #880e4f; /* darker pink shade */
+      text-shadow: 0 0 1px rgba(0,0,0,0.05);
       animation: fadeInTop 4s ease-out forwards;
       line-height: 1.2;
       user-select: none;
       padding: 10px 0;
       letter-spacing: 0.05em;
-    }
-
-    .greeting strong {
-      font-weight: 900;
-    }
-
-    .greeting span {
-      color: inherit; /* keep emoji natural */
-      font-weight: normal;
     }
 
     .greeting br {
@@ -76,12 +69,12 @@
       max-width: 600px;
       text-align: center;
       box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3); /* subtle pink shadow */
-      margin-top: 180px; /* adjusted for bigger gap */
+      margin-top: 230px; /* increased margin to separate from greeting */
       z-index: 2;
     }
 
     h2 {
-      color: #c2185b; /* deep pink */
+      color: #ad1457; /* darker pink */
       font-weight: 700;
       margin-bottom: 15px;
     }
@@ -108,7 +101,7 @@
     }
 
     button:hover {
-      background-color: #c2185b;
+      background-color: #ad1457;
     }
 
     #errorMsg {
@@ -145,23 +138,22 @@
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
   </style>
 </head>
 <body>
 
-  <div class="header">
+  <header>
     अष्टापद महावंदना 2025
-  </div>
+  </header>
 
   <div class="greeting">
-    <strong>स्नेह प्रयास परिवार</strong><br />
-    आपका हार्दिक स्वागत करता है <span>🙏</span>
+    स्नेह प्रयास परिवार<br />
+    आपका हार्दिक स्वागत करता है 🙏
   </div>
 
   <div class="container">
     <h2>Enter Booking ID to Access the Form</h2>
-    <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g., spc01)" />
+    <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g., Spc101)" />
     <button onclick="checkBookingId()">Submit</button>
 
     <p id="errorMsg"></p>
@@ -185,13 +177,32 @@
   </div>
 
   <script>
+    // Define all valid booking IDs based on your ranges
     const validBookingIds = [];
-    for (let i = 1; i <= 52; i++) {
-      validBookingIds.push("spc" + (i < 10 ? "0" + i : i));
+
+    // Helper to add a range of booking IDs (case insensitive)
+    function addBookingRange(prefix, start, end) {
+      for(let i = start; i <= end; i++) {
+        // Format number with no leading zeros except as needed
+        validBookingIds.push(prefix.toLowerCase() + i);
+      }
     }
 
+    // Adding ranges (all lowercased for case-insensitive check)
+    addBookingRange('spc', 101, 153); // Spc101 - Spc153 (you wrote Spc101-SPC53 which seems typo, assuming 153)
+    addBookingRange('ind', 154, 188);
+    addBookingRange('shwh', 189, 274);
+    addBookingRange('nhwh', 275, 295);
+    addBookingRange('bbz', 296, 318);
+    addBookingRange('bbk', 319, 339);
+    addBookingRange('ali', 340, 348);
+    addBookingRange('kan', 349, 371);
+    addBookingRange('chow', 372, 389);
+    addBookingRange('shy', 390, 409);
+
     function checkBookingId() {
-      const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
+      const enteredIdRaw = document.getElementById("bookingId").value.trim();
+      const enteredId = enteredIdRaw.toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const formContainer = document.getElementById("formContainer");
 
