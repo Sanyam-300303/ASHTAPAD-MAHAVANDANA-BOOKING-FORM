@@ -26,19 +26,40 @@
       color: #333;
     }
 
+    header {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ffc1e3, #ff80ab, #ff4081);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2), 0 0 10px rgba(255, 64, 129, 0.5);
+      user-select: none;
+      letter-spacing: 0.1em;
+      padding: 10px 0;
+      z-index: 10;
+    }
+
     .greeting {
       position: absolute;
-      top: 20px;
+      top: 70px; /* below header */
       width: 100%;
       font-size: 40px;
       font-weight: 700;
-      color: #f8bbd0; /* light pink */
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+      background: linear-gradient(45deg, #ffc1e3, #ff80ab, #ff4081);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2), 0 0 10px rgba(255, 64, 129, 0.5);
       animation: fadeInTop 4s ease-out forwards;
       line-height: 1.2;
       user-select: none;
       padding: 10px 0;
       letter-spacing: 0.05em;
+      z-index: 5;
     }
 
     .greeting br {
@@ -54,7 +75,7 @@
       max-width: 600px;
       text-align: center;
       box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3); /* subtle pink shadow */
-      margin-top: 100px;
+      margin-top: 180px; /* increased margin to create gap from greeting */
       z-index: 2;
     }
 
@@ -118,34 +139,18 @@
       box-shadow: 0 4px 10px rgba(240, 128, 152, 0.25);
     }
 
-    /* Stylish footer */
-    .footer {
-      font-size: 28px;      /* Increased font size */
-      font-weight: bold;
-      margin-top: 60px;     /* Increased gap from container */
-      color: #f48fb1;
-      background: linear-gradient(45deg, #ffc1e3, #ff80ab, #ff4081);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2), 0 0 10px rgba(255, 64, 129, 0.5);
-      animation: fadeInBottom 2s ease-out;
-      user-select: none;
-    }
-
     /* Animations */
     @keyframes fadeInTop {
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes fadeInBottom {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
+
+  <header>
+    ASHTAPAD MAHAVANDANA 2025
+  </header>
 
   <div class="greeting">
     स्नेह प्रयास परिवार<br />
@@ -175,10 +180,6 @@
         </label>
       </div>
     </div>
-  </div>
-
-  <div class="footer">
-    For Sneh Prayas Committee
   </div>
 
   <script>
