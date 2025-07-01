@@ -1,205 +1,40 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Booking Access</title>
+.header {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  font-size: 36px;
+  font-weight: 600;
+  color: #f7b7c4; /* soft pink */
+  background: linear-gradient(45deg, #f7d6db, #f2a3af, #e7758a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 3px rgba(231, 117, 138, 0.35);
+  user-select: none;
+  padding: 10px 0;
+  letter-spacing: 0.07em;
+  z-index: 6;
+}
 
-  <!-- Google Fonts for religious/classy feel -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto&display=swap" rel="stylesheet" />
+.greeting {
+  position: absolute;
+  top: 140px; /* doubled gap from 90px to 140px */
+  width: 100%;
+  font-size: 38px;
+  font-weight: 500;
+  background: linear-gradient(45deg, #f7d6db, #f2a3af, #e7758a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 2px rgba(231, 117, 138, 0.3);
+  animation: fadeInTop 4s ease-out forwards;
+  line-height: 1.2;
+  user-select: none;
+  padding: 8px 0;
+  letter-spacing: 0.05em;
+  z-index: 5;
+}
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      font-family: 'Baloo 2', cursive, 'Roboto', sans-serif;
-      background-image: url('https://www.kailash-yatra.org/images/ashtpad.jpg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      flex-direction: column;
-      color: #333;
-    }
-
-    /* Header */
-    .header {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      font-size: 36px;
-      font-weight: 600;
-      color: #f7b7c4; /* soft pink */
-      background: linear-gradient(45deg, #f7d6db, #f2a3af, #e7758a);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 3px rgba(231, 117, 138, 0.35);
-      user-select: none;
-      padding: 10px 0;
-      letter-spacing: 0.07em;
-      z-index: 6;
-    }
-
-    .greeting {
-      position: absolute;
-      top: 90px; /* increased gap from header */
-      width: 100%;
-      font-size: 38px;
-      font-weight: 500;
-      background: linear-gradient(45deg, #f7d6db, #f2a3af, #e7758a);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 2px rgba(231, 117, 138, 0.3);
-      animation: fadeInTop 4s ease-out forwards;
-      line-height: 1.2;
-      user-select: none;
-      padding: 8px 0;
-      letter-spacing: 0.05em;
-      z-index: 5;
-    }
-
-    /* ... rest of your CSS unchanged ... */
-
-    .container {
-      background-color: rgba(255, 240, 245, 0.9); /* very light pink */
-      padding: 20px 30px;
-      border-radius: 12px;
-      width: 85%;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3); /* subtle pink shadow */
-      margin-top: 100px;
-      z-index: 2;
-    }
-
-    h2 {
-      color: #c2185b; /* deep pink */
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
-      width: 80%;
-      margin: 12px 0;
-      border-radius: 6px;
-      border: 1px solid #f48fb1; /* light pink border */
-      outline-color: #f06292;
-    }
-
-    button {
-      padding: 10px 24px;
-      font-size: 16px;
-      background-color: #f06292;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #c2185b;
-    }
-
-    #errorMsg {
-      color: #d81b60; /* pinkish red */
-      margin-top: 10px;
-      font-weight: 600;
-      min-height: 24px;
-    }
-
-    .terms {
-      font-size: 14px;
-      color: #880e4f;
-      margin-top: 15px;
-      line-height: 1.3;
-      user-select: none;
-    }
-
-    .terms input[type="checkbox"] {
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      margin-top: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(240, 128, 152, 0.25);
-    }
-
-    /* Animations */
-    @keyframes fadeInTop {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="header">
-    अष्टापद महावंदना 2025
-  </div>
-
-  <div class="greeting">
-    स्नेह प्रयास परिवार<br />
-    आपका हार्दिक स्वागत करता है 🙏
-  </div>
-
-  <div class="container">
-    <h2>Enter Booking ID to Access the Form</h2>
-    <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g., spc01)" />
-    <button onclick="checkBookingId()">Submit</button>
-
-    <p id="errorMsg"></p>
-
-    <div id="formContainer" style="display:none;">
-      <h3>Booking Form</h3>
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfa4JVsl8UrsiXwkDofkSUMUAy5JCLhde6m3tioh0_hxrh-PA/viewform?embedded=true"
-        loading="lazy"
-      >
-        Loading…
-      </iframe>
-
-      <div class="terms">
-        <input type="checkbox" id="termsCheckbox" required />
-        <label for="termsCheckbox">
-          We hereby confirm that all the information provided is accurate and complete to the best of our knowledge. We acknowledge that we have read, understood, and agree to abide by the terms and conditions set forth by the Sneh Prayas Yatra Committee. Furthermore, we understand that the Committee reserves the right to reject our application without providing any reason and may modify the itinerary, route, or destinations at any time prior to the trip.
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const validBookingIds = [];
-    for (let i = 1; i <= 52; i++) {
-      validBookingIds.push("spc" + (i < 10 ? "0" + i : i));
-    }
-
-    function checkBookingId() {
-      const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
-      const errorMsg = document.getElementById("errorMsg");
-      const formContainer = document.getElementById("formContainer");
-
-      if (validBookingIds.includes(enteredId)) {
-        formContainer.style.display = "block";
-        errorMsg.innerText = "";
-      } else {
-        formContainer.style.display = "none";
-        errorMsg.innerText = "❌ Invalid Booking ID. Please try again.";
-      }
-    }
-  </script>
-</body>
-</html>
+.greeting strong {
+  font-weight: 900; /* make स्नेह प्रयास परिवार bold */
+}
