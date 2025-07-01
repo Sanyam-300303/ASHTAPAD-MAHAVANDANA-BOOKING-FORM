@@ -38,24 +38,11 @@
       letter-spacing: 0.08em;
       user-select: none;
       padding: 10px 0;
-      z-index: 5;
-    }
-
-    /* New image styling */
-    .header-image {
-      position: absolute;
-      top: 100px; /* Between header and greeting */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 180px; /* adjust size */
-      height: auto;
-      z-index: 4;
-      pointer-events: none;
     }
 
     .greeting {
       position: absolute;
-      top: 220px; /* moved down to fit image */
+      top: 170px; /* Increased from 110px to 170px */
       width: 100%;
       font-size: 42px;
       font-weight: 700;
@@ -66,7 +53,6 @@
       user-select: none;
       padding: 10px 0;
       letter-spacing: 0.05em;
-      z-index: 5;
     }
 
     .greeting br {
@@ -82,7 +68,7 @@
       max-width: 600px;
       text-align: center;
       box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
-      margin-top: 300px;
+      margin-top: 300px; /* Adjusted to maintain gap */
       z-index: 2;
     }
 
@@ -158,9 +144,6 @@
   <header>
     अष्टापद महावंदना 2025
   </header>
-
-  <!-- Your local image here -->
-  <img src="image.png" alt="Local Image" class="header-image" />
 
   <div class="greeting">
     स्नेह प्रयास <br />
