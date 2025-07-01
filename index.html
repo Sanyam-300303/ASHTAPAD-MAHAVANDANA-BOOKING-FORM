@@ -38,11 +38,28 @@
       letter-spacing: 0.08em;
       user-select: none;
       padding: 10px 0;
+      z-index: 3;
+    }
+
+    /* New container for local image between header and greeting */
+    .header-bg-container {
+      position: absolute;
+      top: 80px; /* below header */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;  /* adjust size as needed */
+      height: 120px; /* adjust size as needed */
+      background-image: url('image.png'); /* your local image filename */
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      z-index: 2;
+      pointer-events: none; /* so clicks pass through */
     }
 
     .greeting {
       position: absolute;
-      top: 170px; /* Increased from 110px to 170px */
+      top: 210px; /* moved down to accommodate image */
       width: 100%;
       font-size: 42px;
       font-weight: 700;
@@ -53,6 +70,7 @@
       user-select: none;
       padding: 10px 0;
       letter-spacing: 0.05em;
+      z-index: 3;
     }
 
     .greeting br {
@@ -68,7 +86,7 @@
       max-width: 600px;
       text-align: center;
       box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
-      margin-top: 300px; /* Adjusted to maintain gap */
+      margin-top: 300px;
       z-index: 2;
     }
 
@@ -144,6 +162,8 @@
   <header>
     अष्टापद महावंदना 2025
   </header>
+
+  <div class="header-bg-container"></div> <!-- Local image container -->
 
   <div class="greeting">
     स्नेह प्रयास <br />
