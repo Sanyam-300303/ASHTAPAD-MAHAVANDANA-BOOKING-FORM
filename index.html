@@ -9,62 +9,59 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
       font-family: 'Baloo 2', cursive, 'Roboto', sans-serif;
       background-image: url('https://www.kailash-yatra.org/images/ashtpad.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       text-align: center;
-      position: relative;
-      flex-direction: column;
       color: #333;
     }
+
     header {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      font-size: 76px;
+      font-size: 64px;
       font-weight: 600;
       color: #ad1457;
       text-shadow: 0 0 2px rgba(0,0,0,0.1);
-      animation: fadeInTop 4s ease-out forwards;
+      animation: fadeInTop 2s ease-out forwards;
       letter-spacing: 0.08em;
       user-select: none;
-      padding: 10px 0;
+      margin: 20px 0 10px;
+      padding: 0 15px;
     }
+
     .greeting {
-      position: absolute;
-      top: 170px;
-      width: 100%;
-      font-size: 42px;
+      font-size: 32px;
       font-weight: 700;
       color: #880e4f;
       text-shadow: 0 0 1px rgba(0,0,0,0.05);
-      animation: fadeInTop 4s ease-out forwards;
-      line-height: 1.2;
+      animation: fadeInTop 2s ease-out forwards;
+      line-height: 1.3;
       user-select: none;
-      padding: 10px 0;
-      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+      padding: 0 15px;
     }
+
     .container {
       background-color: rgba(255, 240, 245, 0.9);
       padding: 20px 30px;
       border-radius: 12px;
-      width: 85%;
+      width: 90%;
       max-width: 600px;
       text-align: center;
       box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
-      margin-top: 300px;
-      z-index: 2;
+      margin-bottom: 40px;
     }
+
     h2 {
       color: #ad1457;
       font-weight: 700;
       margin-bottom: 15px;
     }
+
     input[type="text"] {
       padding: 10px;
       font-size: 16px;
@@ -74,6 +71,7 @@
       border: 1px solid #f48fb1;
       outline-color: #f06292;
     }
+
     button {
       padding: 10px 24px;
       font-size: 16px;
@@ -84,26 +82,32 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     button:hover {
       background-color: #ad1457;
     }
+
     #errorMsg {
       color: #d81b60;
       margin-top: 10px;
       font-weight: 600;
       min-height: 24px;
     }
+
     .terms {
       font-size: 14px;
       color: #880e4f;
       margin-top: 15px;
       line-height: 1.3;
       user-select: none;
+      text-align: left;
     }
+
     .terms input[type="checkbox"] {
       margin-right: 10px;
       cursor: pointer;
     }
+
     iframe {
       width: 100%;
       height: 600px;
@@ -112,9 +116,44 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(240, 128, 152, 0.25);
     }
+
     @keyframes fadeInTop {
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 36px;
+        margin-top: 20px;
+      }
+
+      .greeting {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        padding: 15px 20px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      iframe {
+        height: 400px;
+      }
+
+      .terms {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -158,7 +197,7 @@
       }
     }
 
-    // Updated Booking ID Ranges
+    // Updated ranges
     addBookingRange('spc', 101, 152);
     addBookingRange('ind', 153, 196);
     addBookingRange('shwh', 197, 288);
